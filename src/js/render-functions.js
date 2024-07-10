@@ -1,7 +1,6 @@
-import { picturesContainer } from "../main";
 import { pixabeyApiPictures } from "./pixabay-api";
+
 const data = pixabeyApiPictures.hits;
-console.log(data);
 
 export function renderPictures(arr) {
     return arr.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `
@@ -16,6 +15,6 @@ export function renderPictures(arr) {
         </a>
     `).join("");
 }
-
+const picturesContainer = document.querySelector(".pictures");
 picturesContainer.insertAdjacentHTML("afterbegin", renderPictures(data));
 
