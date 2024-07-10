@@ -13,3 +13,52 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+}
+
+
+
+.search-input {
+  width: 272px;
+  padding: 8px 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+  background: #fff;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  margin-right: 8px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.search-input:hover {
+  border-color: #000000;
+}
+
+.search-input:active {
+  border-color: #4E75FF;
+}
+
+.search-button {
+  border: transparent;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background: #6C8CFF;
+}
