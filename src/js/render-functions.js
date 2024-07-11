@@ -1,20 +1,35 @@
-import { pixabeyApiPictures } from "./pixabay-api";
-
-const data = pixabeyApiPictures.hits;
-
-export function renderPictures(arr) {
-    return arr.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `
-    <a class="gallery-link" href="${largeImageURL}">
+export function renderPictures(hits) {
+    return hits.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `
+    <li class="gallery-card">
+        <a class="gallery-link" href="${largeImageURL}">
           <img
             class="gallery-image"
-            src="${webformatURL}"
-            alt="${tags}"
+            src="${webformatURL}" 
+            alt="${tags}" 
             width="360"
-            height="200"
+            height="152" 
           />
         </a>
+        <div class="discribe-box">
+          <ul class="discribe-list">
+            <li class="discribe-item">
+              <h2 class="discribe-title">Likes</h2>
+              <p class="discribe-text">${likes}</p>
+            </li>
+            <li class="discribe-item">
+              <h2 class="discribe-title">Views</h2>
+              <p class="discribe-text">${views}</p>
+            </li>
+            <li class="discribe-item">
+              <h2 class="discribe-title">Comments</h2>
+              <p class="discribe-text">${comments}</p>
+            </li>
+            <li class="discribe-item">
+              <h2 class="discribe-title">Downloads</h2>
+              <p class="discribe-text">${downloads}</p>
+            </li>
+          </ul>
+        </div>
+      </li>
     `).join("");
 }
-const picturesContainer = document.querySelector(".pictures");
-picturesContainer.insertAdjacentHTML("afterbegin", renderPictures(data));
-

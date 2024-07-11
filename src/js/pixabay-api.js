@@ -1,11 +1,19 @@
-export function pixabeyApiPictures(query) {
-    const API_KEY = "44868701-a6c2bf036a020cab1604664f3";
-    const imageType = "photo";
-    const orientation = "horizontal" 
-    const safesearch = true;
+const params = {
+    key: "44868701-a6c2bf036a020cab1604664f3",
+    q: "",
+    imageType: "photo",
+    orientation: "horizontal",
+    safesearch: true,
+};
 
+export function generateHttpsQuery(formValue) {
+    params.q = formValue;
+    const queryString = new URLSearchParams(params).toString();
+    return `https://pixabay.com/api/?${queryString}`;
+}
 
-    return fetch(`https://pixabay.com/api/?key=${API_KEY}&q=${query}&image_type=${imageType}&orientation=${orientation}&safesearch=${safesearch}`)
+export function fetchPictures(httpsQuery) {
+    return fetch(httpsQuery)
         .then((response) => {
             if (!response.ok) {
                 throw new Error(response.status);

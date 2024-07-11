@@ -16,16 +16,19 @@
     <script type="module" defer src="./js/render-functions.js"></script> -->
   </head>
   <body>
-    <form class="search-form">
+    <form class="search-form js-search-form">
       <input
         class="search-input"
         type="text"
-        name="text"
+        name="searchtext"
         placeholder="Search images..."
       />
       <button class="search-button" type="submit">Search</button>
     </form>
 
-    <div class="pictures"></div>
+    <section class="container">
+      <span class="js-loader"></span>
+      <ul class="gallery js-gallery"></ul>
+    </section>
   </body>
 </html>
